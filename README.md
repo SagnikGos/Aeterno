@@ -4,7 +4,7 @@
 [![React](https://img.shields.io/badge/React-18.2-blue)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.3-38B2AC)](https://tailwindcss.com/)
 
-<img src="public/logo.svg" alt="Aeterno Logo" width="200"/>
+
 
 A modern marketplace bridging sustainable waste management with artistic craftsmanship, transforming industrial scrap into beautiful upcycled products.
 

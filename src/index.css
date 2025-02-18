@@ -1,0 +1,30 @@
+@import "tailwindcss";
+body {
+  overscroll-behavior: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+input:checked + div {
+  background: rgba(72, 187, 120, 0.2);
+  border-color: #48bb78;
+}
+
+input:checked + div svg {
+  opacity: 1;
+  animation: check 0.2s ease-out;
+}
+
+@keyframes check {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

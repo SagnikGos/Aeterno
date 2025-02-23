@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const ScrapListing = () => {
   const [formData, setFormData] = useState({
-    scrapType: '',
-    quantity: '',
-    description: '',
-    location: '',
-    contactNumber: '',
+    scrapType: "",
+    quantity: "",
+    description: "",
+    location: "",
+    contactNumber: "",
     pickupDate: new Date(),
-    images: []
+    images: [],
   });
 
   const handleSubmit = (e) => {
@@ -23,23 +23,24 @@ const ScrapListing = () => {
 
   return (
     <div className="bg-gradient-to-b from-green-900 to-green-700 min-h-screen text-white">
-      
-
       {/* Content */}
       <div className="relative z-10">
         {/* Navigation Bar */}
         <nav className="flex justify-between items-center p-6 max-w-7xl mx-auto">
           <div className="text-2xl font-bold text-green-100">
-            <span className="bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent">
+            <Link
+              to="/"
+              className="bg-gradient-to-r from-green-300 to-emerald-300 bg-clip-text text-transparent"
+            >
               Aeterno
-            </span>
+            </Link>
             <p className="text-sm mt-1">Crafting tomorrow from yesterday</p>
           </div>
-          
+
           <ul className="flex items-center gap-6">
             <li>
-              <Link 
-                to="/scrap-listing" 
+              <Link
+                to="/scrap-listing"
                 className="hover:text-green-300 font-medium transition-colors text-green-100"
               >
                 Sell Scrap
@@ -53,8 +54,8 @@ const ScrapListing = () => {
                 whileTap={{ scale: 0.95 }}
               >
                 <span>Dashboard</span>
-                <motion.span 
-                  animate={{ x: [-2, 2, -2] }} 
+                <motion.span
+                  animate={{ x: [-2, 2, -2] }}
                   transition={{ repeat: Infinity, duration: 1 }}
                 >
                   →
@@ -65,7 +66,7 @@ const ScrapListing = () => {
         </nav>
 
         {/* Main Form */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-3xl mx-auto px-4 py-12"
@@ -77,13 +78,15 @@ const ScrapListing = () => {
 
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Contact Information */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 className="space-y-4"
               >
-                <h3 className="text-xl font-semibold text-green-300 mb-4">Contact Details</h3>
-                
+                <h3 className="text-xl font-semibold text-green-300 mb-4">
+                  Contact Details
+                </h3>
+
                 <div className="grid md:grid-cols-2 gap-4">
                   <input
                     type="text"
@@ -101,13 +104,15 @@ const ScrapListing = () => {
               </motion.div>
 
               {/* Scrap Details */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 className="space-y-4"
               >
-                <h3 className="text-xl font-semibold text-green-300 mb-4">Scrap Details</h3>
-                
+                <h3 className="text-xl font-semibold text-green-300 mb-4">
+                  Scrap Details
+                </h3>
+
                 <select
                   className="w-full bg-green-900/20 border border-green-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-green-400"
                   required
@@ -142,17 +147,21 @@ const ScrapListing = () => {
               </motion.div>
 
               {/* Pickup Details */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 className="space-y-4"
               >
-                <h3 className="text-xl font-semibold text-green-300 mb-4">Pickup Details</h3>
-                
+                <h3 className="text-xl font-semibold text-green-300 mb-4">
+                  Pickup Details
+                </h3>
+
                 <div className="grid md:grid-cols-2 gap-4">
                   <DatePicker
                     selected={formData.pickupDate}
-                    onChange={(date) => setFormData({ ...formData, pickupDate: date })}
+                    onChange={(date) =>
+                      setFormData({ ...formData, pickupDate: date })
+                    }
                     className="w-full bg-green-900/20 border border-green-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-green-400"
                     placeholderText="Select Preferred Pickup Date"
                   />
@@ -181,7 +190,7 @@ const ScrapListing = () => {
               </motion.div>
 
               {/* Terms and Submit */}
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 className="space-y-4"
@@ -193,7 +202,8 @@ const ScrapListing = () => {
                     required
                   />
                   <span className="text-sm text-green-200">
-                    I agree to the terms of scrap collection and recycling process
+                    I agree to the terms of scrap collection and recycling
+                    process
                   </span>
                 </div>
 
@@ -216,21 +226,43 @@ const ScrapListing = () => {
             <div>
               <h3 className="text-lg font-bold mb-4 text-green-50">Aeterno</h3>
               <p className="text-green-200 text-sm">
-                Bridging sustainability and craftsmanship through innovative upcycling solutions.
+                Bridging sustainability and craftsmanship through innovative
+                upcycling solutions.
               </p>
             </div>
-            
+
             {[
-              { title: 'Company', links: ['About', 'Careers', 'Blog', 'Press'] },
-              { title: 'Resources', links: ['Artisan Hub', 'Business Solutions', 'Sustainability Report', 'FAQs'] },
-              { title: 'Legal', links: ['Privacy', 'Terms', 'Security', 'Contact'] }
+              {
+                title: "Company",
+                links: ["About", "Careers", "Blog", "Press"],
+              },
+              {
+                title: "Resources",
+                links: [
+                  "Artisan Hub",
+                  "Business Solutions",
+                  "Sustainability Report",
+                  "FAQs",
+                ],
+              },
+              {
+                title: "Legal",
+                links: ["Privacy", "Terms", "Security", "Contact"],
+              },
             ].map((section) => (
               <div key={section.title}>
-                <h4 className="font-semibold mb-4 text-green-50">{section.title}</h4>
+                <h4 className="font-semibold mb-4 text-green-50">
+                  {section.title}
+                </h4>
                 <ul className="space-y-2">
                   {section.links.map((link) => (
                     <li key={link}>
-                      <a href="#" className="text-green-200 hover:text-green-300 text-sm">{link}</a>
+                      <a
+                        href="#"
+                        className="text-green-200 hover:text-green-300 text-sm"
+                      >
+                        {link}
+                      </a>
                     </li>
                   ))}
                 </ul>
